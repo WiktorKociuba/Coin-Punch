@@ -14,3 +14,12 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+/addons/godot_super-wakatime
+images/godotwaka.png
+images/godotwaka.png.import
+images/godotwaka2.png
+images/godotwaka2.png.import
+images/icon.jpg
+images/icon.jpg.import
+LICENSE
+README.md
