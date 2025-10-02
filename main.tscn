@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://baiosiro0vme"]
+[gd_scene load_steps=11 format=4 uid="uid://baiosiro0vme"]
 
 [ext_resource type="Script" uid="uid://3xv1lqjvcgl" path="res://scripts/player.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://ccf6374xrmvjb" path="res://icon.svg" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cg7nitd7x7gvc" path="res://collectibles/coin_ui.tscn" id="3_272bh"]
 [ext_resource type="Texture2D" uid="uid://ce3gsho4xvcgt" path="res://txt/pixil-frame-0-2.png" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://crta4tu357ojg" path="res://collectibles/gold_coin.tscn" id="4_7mycd"]
 [ext_resource type="PackedScene" uid="uid://2yq2x5erebwe" path="res://collectibles/red_coin.tscn" id="5_272bh"]
@@ -110,6 +111,12 @@ shape = SubResource("RectangleShape2D_1bvp3")
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
 
+[node name="Coin UI" parent="Player" instance=ExtResource("3_272bh")]
+offset_left = -285.0
+offset_top = -158.0
+offset_right = -285.0
+offset_bottom = -158.0
+
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAMAAAAAAAAAAAAJAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAALAAMAAAAAAAAAAAAMAAMAAAAAAAAAAAANAAMAAAAAAAAAAAAOAAMAAAAAAAAAAAAPAAMAAAAAAAAAAAAQAAMAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_lquwl")
@@ -122,3 +129,30 @@ position = Vector2(282, -106)
 
 [node name="SilverCoin" parent="." instance=ExtResource("6_5vw27")]
 position = Vector2(375, -44)
+
+[node name="GoldCoin2" parent="." instance=ExtResource("4_7mycd")]
+position = Vector2(189, 12)
+
+[node name="GoldCoin3" parent="." instance=ExtResource("4_7mycd")]
+position = Vector2(189, 12)
+
+[node name="GoldCoin4" parent="." instance=ExtResource("4_7mycd")]
+position = Vector2(189, 12)
+
+[node name="GoldCoin5" parent="." instance=ExtResource("4_7mycd")]
+position = Vector2(189, 12)
+
+[node name="GoldCoin6" parent="." instance=ExtResource("4_7mycd")]
+position = Vector2(189, 12)
+
+[node name="GoldCoin7" parent="." instance=ExtResource("4_7mycd")]
+position = Vector2(189, 12)
+
+[node name="GoldCoin8" parent="." instance=ExtResource("4_7mycd")]
+position = Vector2(189, 12)
+
+[node name="GoldCoin9" parent="." instance=ExtResource("4_7mycd")]
+position = Vector2(189, 12)
+
+[node name="GoldCoin10" parent="." instance=ExtResource("4_7mycd")]
+position = Vector2(189, 12)

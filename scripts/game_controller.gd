@@ -6,12 +6,12 @@ extends Node
 
 func goldCoinCollected(value: int):
 	goldTotalCoins += value
-	EventController.emit_signal("goldCoinCollected")
+	EventController.emit_signal("goldCoinCollected", goldTotalCoins)
 
 func silverCoinCollected(value: int):
 	silverTotalCoins += value
-	EventController.emit_signal("silverCoinCollected")
+	EventController.emit_signal("silverCoinCollected", silverTotalCoins)
 
 func redCoinCollected(value: int):
 	redTotalCoins += value
-	EventController.emit_signal("redCoinCollected")
+	EventController.emit_signal("redCoinCollected", redTotalCoins)
