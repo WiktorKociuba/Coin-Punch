@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4deerffcrgct"]
+
+[ext_resource type="Script" uid="uid://d2568ypqybpqs" path="res://characters/enemy.gd" id="1_nhupr"]
+[ext_resource type="Texture2D" uid="uid://ccf6374xrmvjb" path="res://icon.svg" id="2_1ohc2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcqa8"]
+size = Vector2(36, 36)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ggbst"]
+radius = 123.49089
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_toq4n"]
+radius = 408.70773
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhupr"]
+size = Vector2(1631, 1357)
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("navAgent")]
+collision_layer = 4
+collision_mask = 7
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_nhupr")
+speed = 150
+navAgent = NodePath("Navigation/NavigationAgent2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.7683716e-07, 0)
+scale = Vector2(0.28125, 0.28125)
+texture = ExtResource("2_1ohc2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hcqa8")
+
+[node name="Navigation" type="Node2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
+avoidance_enabled = true
+radius = 32.0
+time_horizon_obstacles = 1.0
+max_speed = 150.0
+debug_enabled = true
+
+[node name="RecalculateTimer" type="Timer" parent="Navigation"]
+wait_time = 0.1
+autostart = true
+
+[node name="Aggro" type="Node2D" parent="."]
+
+[node name="AggroRange" type="Area2D" parent="Aggro"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro/AggroRange"]
+shape = SubResource("CircleShape2D_ggbst")
+debug_color = Color(0.94471455, 0.2234343, 0.20773014, 0.41960785)
+
+[node name="DeAggroRange" type="Area2D" parent="Aggro"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro/DeAggroRange"]
+shape = SubResource("CircleShape2D_toq4n")
+
+[node name="WalkPath" type="Node2D" parent="."]
+
+[node name="WalkArea" type="Area2D" parent="WalkPath"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WalkPath/WalkArea"]
+shape = SubResource("RectangleShape2D_nhupr")
+
+[connection signal="velocity_computed" from="Navigation/NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="timeout" from="Navigation/RecalculateTimer" to="." method="_on_recalculate_timer_timeout"]
+[connection signal="area_entered" from="Aggro/AggroRange" to="." method="_on_aggro_range_area_entered"]
+[connection signal="area_exited" from="Aggro/DeAggroRange" to="." method="_on_de_aggro_range_area_exited"]
