@@ -37,13 +37,15 @@ offset_right = -581.0
 offset_bottom = -324.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+position = Vector2(2, 0)
+zoom = Vector2(1.5, 1.5)
 
 [node name="Coin UI" parent="." instance=ExtResource("3_evndh")]
-offset_left = -285.0
-offset_top = -158.0
-offset_right = -285.0
-offset_bottom = -158.0
+z_index = 998
+offset_left = -367.0
+offset_top = -203.0
+offset_right = -367.0
+offset_bottom = -203.0
 
 [node name="AttackArea" type="Area2D" parent="."]
 collision_layer = 2
@@ -61,7 +63,8 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_tory2")
 
 [node name="HealthUI" parent="." instance=ExtResource("5_evndh")]
-offset_left = 124.0
-offset_top = -160.0
-offset_right = 124.0
-offset_bottom = -160.0
+z_index = 998
+offset_left = 210.0
+offset_top = -202.0
+offset_right = 210.0
+offset_bottom = -202.0
