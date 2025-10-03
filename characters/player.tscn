@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://m5y0keqy8xvx"]
+[gd_scene load_steps=8 format=3 uid="uid://m5y0keqy8xvx"]
 
 [ext_resource type="Script" uid="uid://3xv1lqjvcgl" path="res://scripts/player.gd" id="1_tory2"]
 [ext_resource type="Texture2D" uid="uid://ccf6374xrmvjb" path="res://icon.svg" id="2_x0jl3"]
 [ext_resource type="PackedScene" uid="uid://cg7nitd7x7gvc" path="res://collectibles/coin_ui.tscn" id="3_evndh"]
+[ext_resource type="Script" uid="uid://b1loqj3ags5ag" path="res://scripts/attack_area.gd" id="4_x0jl3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(40, 42)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x0jl3"]
+radius = 91.00549
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tory2"]
 radius = 30.413813
@@ -32,9 +36,17 @@ offset_top = -158.0
 offset_right = -285.0
 offset_bottom = -158.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("4_x0jl3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_x0jl3")
+
+[node name="AggroArea" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroArea"]
 shape = SubResource("CircleShape2D_tory2")

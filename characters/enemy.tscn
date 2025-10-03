@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://b4deerffcrgct"]
 
-[ext_resource type="Script" uid="uid://d2568ypqybpqs" path="res://characters/enemy.gd" id="1_nhupr"]
+[ext_resource type="Script" uid="uid://d2568ypqybpqs" path="res://scripts/enemy.gd" id="1_nhupr"]
 [ext_resource type="Texture2D" uid="uid://ccf6374xrmvjb" path="res://icon.svg" id="2_1ohc2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcqa8"]
-size = Vector2(36, 36)
+[sub_resource type="CircleShape2D" id="CircleShape2D_nhupr"]
+radius = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ggbst"]
 radius = 123.49089
@@ -30,7 +30,7 @@ scale = Vector2(0.28125, 0.28125)
 texture = ExtResource("2_1ohc2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_hcqa8")
+shape = SubResource("CircleShape2D_nhupr")
 
 [node name="Navigation" type="Node2D" parent="."]
 

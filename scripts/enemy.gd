@@ -3,6 +3,10 @@ class_name Enemy extends CharacterBody2D
 @export var speed = 30
 @export var navAgent: NavigationAgent2D
 @onready var pathArea: Rect2 = $WalkPath/WalkArea/CollisionShape2D.shape.get_rect()
+@export var redCoins = 0
+@export var silverCoins = 0
+@export var goldCoins = 0
+@export var health = 3
 
 var targetNode = null
 var homePos = Vector2.ZERO
@@ -51,3 +55,11 @@ func _on_de_aggro_range_area_exited(area: Area2D) -> void:
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 	move_and_slide()
+
+func onHit(value: int):
+	health -= value
+	if health <= 0:
+		self.queue_free()
+		GameController.goldCoinCollected(goldCoins)
+		GameController.redCoinCollected(redCoins)
+		GameController.silverCoinCollected(silverCoins)
