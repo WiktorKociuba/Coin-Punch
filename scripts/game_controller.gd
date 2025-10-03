@@ -1,8 +1,8 @@
 extends Node
 
-@export var goldTotalCoins: int = 0
-@export var silverTotalCoins: int = 0
-@export var redTotalCoins: int = 0
+@onready var goldTotalCoins: int = 0
+@onready var silverTotalCoins: int = 0
+@onready var redTotalCoins: int = 0
 
 func goldCoinCollected(value: int):
 	goldTotalCoins += value

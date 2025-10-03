@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://baiosiro0vme"]
+[gd_scene load_steps=14 format=4 uid="uid://baiosiro0vme"]
 
 [ext_resource type="PackedScene" uid="uid://m5y0keqy8xvx" path="res://characters/player.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://b4deerffcrgct" path="res://characters/enemy.tscn" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://ce3gsho4xvcgt" path="res://txt/pixil-frame-0-2.png" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://uxc8fwc5lwah" path="res://collectibles/silver_coin.tscn" id="4_7mycd"]
+[ext_resource type="PackedScene" uid="uid://2yq2x5erebwe" path="res://collectibles/red_coin.tscn" id="5_272bh"]
+[ext_resource type="PackedScene" uid="uid://crta4tu357ojg" path="res://collectibles/gold_coin.tscn" id="6_5vw27"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1bvp3"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -148,3 +151,12 @@ tile_set = SubResource("TileSet_lquwl")
 
 [node name="Enemy" parent="." instance=ExtResource("3_1bvp3")]
 position = Vector2(1497, -940)
+
+[node name="SilverCoin" parent="." instance=ExtResource("4_7mycd")]
+position = Vector2(945, -857)
+
+[node name="Red Coin" parent="." instance=ExtResource("5_272bh")]
+position = Vector2(992, -873)
+
+[node name="GoldCoin" parent="." instance=ExtResource("6_5vw27")]
+position = Vector2(1060, -862)
