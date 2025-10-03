@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4nat3w81p3vp"]
+
+[ext_resource type="Texture2D" uid="uid://ccbttcb7ccirs" path="res://txt/life.png" id="1_tt5l4"]
+
+[node name="HealthUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 173.0
+offset_bottom = 40.0
+
+[node name="Health" type="Sprite2D" parent="HealthBar"]
+position = Vector2(16, 16)
+texture = ExtResource("1_tt5l4")
+
+[node name="Health2" type="Sprite2D" parent="HealthBar"]
+position = Vector2(48, 16)
+texture = ExtResource("1_tt5l4")
+
+[node name="Health3" type="Sprite2D" parent="HealthBar"]
+position = Vector2(80, 16)
+texture = ExtResource("1_tt5l4")
+
+[node name="Health4" type="Sprite2D" parent="HealthBar"]
+position = Vector2(113, 16)
+texture = ExtResource("1_tt5l4")
+
+[node name="Health5" type="Sprite2D" parent="HealthBar"]
+position = Vector2(145, 16)
+texture = ExtResource("1_tt5l4")

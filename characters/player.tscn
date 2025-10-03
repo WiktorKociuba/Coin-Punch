@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://m5y0keqy8xvx"]
+[gd_scene load_steps=10 format=3 uid="uid://m5y0keqy8xvx"]
 
 [ext_resource type="Script" uid="uid://3xv1lqjvcgl" path="res://scripts/player.gd" id="1_tory2"]
 [ext_resource type="Texture2D" uid="uid://ccf6374xrmvjb" path="res://icon.svg" id="2_x0jl3"]
 [ext_resource type="PackedScene" uid="uid://cg7nitd7x7gvc" path="res://collectibles/coin_ui.tscn" id="3_evndh"]
+[ext_resource type="PackedScene" uid="uid://cajff1c2bpdlf" path="res://UI/death_ui.tscn" id="3_h1q25"]
 [ext_resource type="Script" uid="uid://b1loqj3ags5ag" path="res://scripts/attack_area.gd" id="4_x0jl3"]
+[ext_resource type="PackedScene" uid="uid://d4nat3w81p3vp" path="res://UI/health_ui.tscn" id="5_evndh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(40, 42)
@@ -26,6 +28,13 @@ texture = ExtResource("2_x0jl3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="DeathUI" parent="." instance=ExtResource("3_h1q25")]
+visible = false
+offset_left = -581.0
+offset_top = -324.0
+offset_right = -581.0
+offset_bottom = -324.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -50,3 +59,9 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AggroArea"]
 shape = SubResource("CircleShape2D_tory2")
+
+[node name="HealthUI" parent="." instance=ExtResource("5_evndh")]
+offset_left = 124.0
+offset_top = -160.0
+offset_right = 124.0
+offset_bottom = -160.0
