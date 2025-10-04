@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://bymcss4eq5has"]
+
+[ext_resource type="Script" uid="uid://ci47vp0mrseje" path="res://coin_flip_ui.gd" id="1_6n4lk"]
+[ext_resource type="Texture2D" uid="uid://b1hpbyt28a8gf" path="res://txt/RedCoin.png" id="1_v14na"]
+[ext_resource type="Texture2D" uid="uid://3jp28nn8fwkw" path="res://txt/GoldCoin.png" id="2_6n4lk"]
+[ext_resource type="Texture2D" uid="uid://c1e2sqngcmr28" path="res://txt/SilverCoin.png" id="3_tvah6"]
+
+[node name="CoinFlipUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6n4lk")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer" type="CenterContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="BoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BoxContainer/CenterContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="CenterContainer2" type="CenterContainer" parent="BoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/CenterContainer/VBoxContainer/CenterContainer2"]
+layout_mode = 2
+
+[node name="HeadsBT" type="Button" parent="BoxContainer/CenterContainer/VBoxContainer/CenterContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Heads"
+
+[node name="TailsBT" type="Button" parent="BoxContainer/CenterContainer/VBoxContainer/CenterContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Tails"
+
+[node name="CenterContainer3" type="CenterContainer" parent="BoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BoxContainer/CenterContainer/VBoxContainer/CenterContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BoxContainer/CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer2"]
+layout_mode = 2
+text = "Bet: "
+
+[node name="TextureRect2" type="TextureRect" parent="BoxContainer/CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer2"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_v14na")
+expand_mode = 4
+stretch_mode = 1
+
+[node name="RedInput" type="LineEdit" parent="BoxContainer/CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer2"]
+layout_mode = 2
+placeholder_text = "0"
+
+[node name="TextureRect3" type="TextureRect" parent="BoxContainer/CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer2"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("2_6n4lk")
+expand_mode = 4
+stretch_mode = 1
+
+[node name="GoldInput" type="LineEdit" parent="BoxContainer/CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer2"]
+layout_mode = 2
+placeholder_text = "0"
+
+[node name="TextureRect4" type="TextureRect" parent="BoxContainer/CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer2"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("3_tvah6")
+expand_mode = 4
+stretch_mode = 1
+
+[node name="SilverInput" type="LineEdit" parent="BoxContainer/CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer2"]
+layout_mode = 2
+placeholder_text = "0"
+
+[connection signal="pressed" from="BoxContainer/CenterContainer/VBoxContainer/CenterContainer2/HBoxContainer/HeadsBT" to="." method="_on_heads_bt_pressed"]
+[connection signal="pressed" from="BoxContainer/CenterContainer/VBoxContainer/CenterContainer2/HBoxContainer/TailsBT" to="." method="_on_tails_bt_pressed"]
+[connection signal="text_changed" from="BoxContainer/CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer2/RedInput" to="." method="_on_red_input_text_changed"]
+[connection signal="text_changed" from="BoxContainer/CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer2/GoldInput" to="." method="_on_gold_input_text_changed"]
+[connection signal="text_changed" from="BoxContainer/CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer2/SilverInput" to="." method="_on_silver_input_text_changed"]
