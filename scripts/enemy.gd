@@ -60,6 +60,15 @@ func onHit(value: int):
 	health -= value
 	if health <= 0:
 		self.queue_free()
+		var rng = RandomNumberGenerator.new()
+		var coinType = rng.randi_range(0,2)
+		var coinQuant = rng.randi_range(1,5)
+		if coinType == 0:
+			goldCoins += coinQuant
+		elif coinType == 1:
+			redCoins += coinQuant
+		else:
+			silverCoins += coinQuant
 		GameController.goldCoinCollected(goldCoins)
 		GameController.redCoinCollected(redCoins)
 		GameController.silverCoinCollected(silverCoins)
