@@ -1,10 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsleqywsatvxt"]
+[gd_scene load_steps=3 format=3 uid="uid://bsleqywsatvxt"]
+
+[ext_resource type="Script" uid="uid://dvbav77jmr1nd" path="res://coin_generator.gd" id="1_6dtxw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4nup7"]
 
 [node name="CoinGenerator" type="Node2D"]
+script = ExtResource("1_6dtxw")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_4nup7")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

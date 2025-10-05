@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ce3gsho4xvcgt" path="res://txt/pixil-frame-0-2.png" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://c5g3jxa1f3cew" path="res://arena_entrance_blockage.gd" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://uqqa5x78tnu3" path="res://boss_npc.tscn" id="5_7mycd"]
-[ext_resource type="PackedScene" uid="uid://b4deerffcrgct" path="res://characters/enemy.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bsleqywsatvxt" path="res://coin_generator.tscn" id="6_7mycd"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1bvp3"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -342,5 +342,22 @@ script = ExtResource("4_lquwl")
 [node name="BossNPC" parent="." instance=ExtResource("5_7mycd")]
 position = Vector2(1851, -2313)
 
-[node name="Enemy" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(2560, -1364)
+[node name="CoinGenerator" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(1960.0002, -1297.0001)
+scale = Vector2(110, 80)
+
+[node name="CoinGenerator2" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(4666, -829)
+scale = Vector2(170, 35)
+
+[node name="CoinGenerator5" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(4700, -2739)
+scale = Vector2(170, 35)
+
+[node name="CoinGenerator3" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(3476, -2116)
+scale = Vector2(40, 100)
+
+[node name="CoinGenerator4" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(5982, -1838.9999)
+scale = Vector2(40, 100)
