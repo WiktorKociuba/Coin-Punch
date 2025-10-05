@@ -6,6 +6,10 @@ var GoldBet = 0
 var SilverBet = 0
 var HeadsOrTails = 0
 var isActive = false
+@onready var redInput: LineEdit = $BoxContainer/CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer2/RedInput
+@onready var goldInput: LineEdit = $BoxContainer/CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer2/GoldInput
+@onready var silverInput: LineEdit = $BoxContainer/CenterContainer/VBoxContainer/CenterContainer3/HBoxContainer2/SilverInput
+
 
 func _ready() -> void:
 	EventController.connect("showCoinFlipUi", showUi)
@@ -43,14 +47,31 @@ func _on_tails_bt_pressed() -> void:
 
 func _on_red_input_text_changed(new_text: String) -> void:
 	RedBet = new_text.to_int()
-
+	if RedBet < 0:
+		RedBet = 0
+		redInput.text = "0"
+	elif RedBet > GameController.redTotalCoins:
+		RedBet = GameController.redTotalCoins
+		redInput.text = str(GameController.redTotalCoins)
 
 func _on_gold_input_text_changed(new_text: String) -> void:
 	GoldBet = new_text.to_int()
+	if GoldBet < 0:
+		GoldBet = 0
+		goldInput.text = "0"
+	elif GoldBet > GameController.goldTotalCoins:
+		GoldBet = GameController.goldTotalCoins
+		goldInput.text = str(GameController.goldTotalCoins)
 
 
 func _on_silver_input_text_changed(new_text: String) -> void:
 	SilverBet = new_text.to_int()
+	if SilverBet < 0:
+		SilverBet = 0
+		silverInput.text = "0"
+	elif SilverBet > GameController.silverTotalCoins:
+		SilverBet = GameController.silverTotalCoins
+		silverInput.text = str(GameController.silverTotalCoins)
 
 func showUi():
 	self.visible = true

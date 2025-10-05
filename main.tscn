@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://baiosiro0vme"]
+[gd_scene load_steps=15 format=4 uid="uid://baiosiro0vme"]
 
 [ext_resource type="PackedScene" uid="uid://m5y0keqy8xvx" path="res://characters/player.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://c3qj3ifbib6t7" path="res://game_npc.tscn" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://ce3gsho4xvcgt" path="res://txt/pixil-frame-0-2.png" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://eceiypi3ydo0" path="res://enemy_spawner.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://b4deerffcrgct" path="res://characters/enemy.tscn" id="5_lquwl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1bvp3"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -239,3 +241,7 @@ tile_set = SubResource("TileSet_h2yge")
 z_index = 80
 position = Vector2(3176, -1050)
 gameToLoad = 1
+
+[node name="EnemySpawner" parent="." instance=ExtResource("4_1bvp3")]
+position = Vector2(2750, -1005)
+enemyScene = ExtResource("5_lquwl")
