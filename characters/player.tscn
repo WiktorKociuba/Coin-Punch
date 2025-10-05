@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://m5y0keqy8xvx"]
+[gd_scene load_steps=12 format=3 uid="uid://m5y0keqy8xvx"]
 
 [ext_resource type="Script" uid="uid://3xv1lqjvcgl" path="res://scripts/player.gd" id="1_tory2"]
 [ext_resource type="Texture2D" uid="uid://ccf6374xrmvjb" path="res://icon.svg" id="2_x0jl3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b1loqj3ags5ag" path="res://scripts/attack_area.gd" id="4_x0jl3"]
 [ext_resource type="PackedScene" uid="uid://d4nat3w81p3vp" path="res://UI/health_ui.tscn" id="5_evndh"]
 [ext_resource type="PackedScene" uid="uid://bymcss4eq5has" path="res://coin_flip_ui.tscn" id="7_j31ep"]
+[ext_resource type="PackedScene" uid="uid://cit0pky5b44ly" path="res://boss_ui.tscn" id="8_6t23p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(40, 42)
@@ -76,3 +77,11 @@ offset_left = -161.0
 offset_top = -61.0
 offset_right = -161.0
 offset_bottom = -61.0
+
+[node name="BossUI" parent="." instance=ExtResource("8_6t23p")]
+process_mode = 4
+visible = false
+offset_left = -156.0
+offset_top = -75.0
+offset_right = -156.0
+offset_bottom = -75.0

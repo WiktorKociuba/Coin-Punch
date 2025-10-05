@@ -7,7 +7,7 @@ var target = null
 
 func _process(delta: float) -> void:
 	if target != null and Time.get_unix_time_from_system() - lastHit >= 1.5:
-		target.hit(strength)
+		target.hit(strength, get_parent().get_parent().velocity)
 		lastHit = Time.get_unix_time_from_system()
 
 func _on_body_entered(body: Node2D) -> void:

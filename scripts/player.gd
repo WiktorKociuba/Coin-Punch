@@ -1,5 +1,6 @@
 class_name Player extends CharacterBody2D
 
+@export var knockbackPower = 2000
 @onready var attackArea = $AttackArea
 @onready var lastRestore = Time.get_unix_time_from_system()
 
@@ -33,8 +34,12 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func hit(value: int):
+func hit(value: int, enemyVelocity: Vector2):
 	currentHealth -= value
 	if currentHealth <= 0:
 		get_tree().paused = true
 		$DeathUI.visible = true
+	var knockbackDirection = (enemyVelocity-velocity).normalized()*knockbackPower
+	velocity = knockbackDirection
+	print(enemyVelocity)
+	move_and_slide()

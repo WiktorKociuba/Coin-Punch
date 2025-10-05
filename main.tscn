@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=4 uid="uid://baiosiro0vme"]
+[gd_scene load_steps=18 format=4 uid="uid://baiosiro0vme"]
 
 [ext_resource type="PackedScene" uid="uid://m5y0keqy8xvx" path="res://characters/player.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://c3qj3ifbib6t7" path="res://game_npc.tscn" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://ce3gsho4xvcgt" path="res://txt/pixil-frame-0-2.png" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://eceiypi3ydo0" path="res://enemy_spawner.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://b4deerffcrgct" path="res://characters/enemy.tscn" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://c5g3jxa1f3cew" path="res://arena_entrance_blockage.gd" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://uqqa5x78tnu3" path="res://boss_npc.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://b4deerffcrgct" path="res://characters/enemy.tscn" id="6_7mycd"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1bvp3"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -221,6 +222,93 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_0xm2m")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
+texture = ExtResource("3_h2yge")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1bvp3"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 6
+sources/0 = SubResource("TileSetAtlasSource_h2yge")
+
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_0xm2m")]
@@ -242,6 +330,17 @@ z_index = 80
 position = Vector2(3176, -1050)
 gameToLoad = 1
 
-[node name="EnemySpawner" parent="." instance=ExtResource("4_1bvp3")]
-position = Vector2(2750, -1005)
-enemyScene = ExtResource("5_lquwl")
+[node name="ArenaEntranceBlockage" type="TileMapLayer" parent="."]
+process_mode = 4
+visible = false
+position = Vector2(-11, -1)
+tile_map_data = PackedByteArray("AAAvALr/AAACAAAAAAAwALv/AAACAAAAAAAvALv/AAACAAAAAAAxALv/AAACAAAAAAAxALz/AAACAAAAAAAyALz/AAACAAAAAAAzALz/AAACAAAAAAA0ALz/AAACAAAAAAA2ALz/AAACAAAAAAA1ALz/AAACAAAAAAA3ALz/AAACAAAAAAA4ALz/AAACAAAAAAA5ALz/AAACAAAAAAA6ALz/AAACAAAAAAA7ALz/AAACAAAAAAA8ALz/AAACAAAAAAA9ALz/AAACAAAAAAA+ALz/AAACAAAAAAA/ALz/AAACAAAAAAA=")
+tile_set = SubResource("TileSet_1bvp3")
+collision_enabled = false
+script = ExtResource("4_lquwl")
+
+[node name="BossNPC" parent="." instance=ExtResource("5_7mycd")]
+position = Vector2(1851, -2313)
+
+[node name="Enemy" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(2560, -1364)
