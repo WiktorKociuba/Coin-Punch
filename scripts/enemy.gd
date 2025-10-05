@@ -8,7 +8,10 @@ class_name Enemy extends CharacterBody2D
 @export var goldCoins = 0
 @export var health = 3
 @export var knockbackPower = 3000
+@export var knockbackDuration = 0.25
 
+var knockbackVelocity: Vector2 = Vector2.ZERO
+var knockbackTimeLeft: float = 0.0
 var ifHit = false
 var targetNode = null
 var homePos = Vector2.ZERO
@@ -22,7 +25,16 @@ func _ready():
 
 
 func _physics_process(_delta: float):
-	if ifHit:
+	if knockbackTimeLeft > 0.0:
+		knockbackTimeLeft = max(knockbackTimeLeft - _delta, 0.0)
+		knockbackVelocity = knockbackVelocity.move_toward(Vector2.ZERO, _delta)
+		velocity = knockbackVelocity
+		move_and_slide()
+		if knockbackTimeLeft == 0.0:
+			ifHit = false
+			knockbackVelocity = Vector2.ZERO
+			navAgent.set_velocity(Vector2.ZERO)
+			recalcPath()
 		return
 	if navAgent.is_navigation_finished():
 		return
@@ -59,18 +71,24 @@ func _on_de_aggro_range_area_exited(area: Area2D) -> void:
 
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
+	if knockbackTimeLeft > 0.0:
+		return
 	velocity = safe_velocity
 	move_and_slide()
 
-func onHit(value: int, playerVelocity: Vector2):
+func onHit(value: int, playerVelocity: Vector2, playerPosition: Vector2):
 	health -= value
-	var knockbackDirection = (playerVelocity - velocity).normalized() * knockbackPower
-	print(knockbackDirection)
-	navAgent.target_position = knockbackDirection
-	var axis = to_local(navAgent.get_next_path_position()).normalized()
-	var nextVelocity = axis * knockbackPower
-	navAgent.set_velocity(nextVelocity)
+	var knockbackDirection = (global_position - playerPosition)
+	if knockbackDirection.is_zero_approx():
+		knockbackDirection = -(playerVelocity)
+	if knockbackDirection.is_zero_approx():
+		knockbackDirection = Vector2.RIGHT
+	knockbackDirection = knockbackDirection.normalized()
+	knockbackVelocity = knockbackDirection * knockbackPower
+	knockbackTimeLeft = knockbackDuration
 	ifHit = true
+	navAgent.set_velocity(Vector2.ZERO)
+	navAgent.set_target_position(global_position)
 	if health <= 0:
 		self.queue_free()
 		var rng = RandomNumberGenerator.new()

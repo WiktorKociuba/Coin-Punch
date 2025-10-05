@@ -1,17 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4deerffcrgct"]
+[gd_scene load_steps=9 format=3 uid="uid://bwtg0cmoqqcgj"]
 
-[ext_resource type="Script" uid="uid://d2568ypqybpqs" path="res://scripts/enemy.gd" id="1_nhupr"]
-[ext_resource type="Texture2D" uid="uid://ccf6374xrmvjb" path="res://icon.svg" id="2_1ohc2"]
-[ext_resource type="Script" uid="uid://o6gdofue8oay" path="res://characters/attack_area_enemy.gd" id="3_1ohc2"]
+[ext_resource type="Script" uid="uid://ot1o1r70k86" path="res://boss.gd" id="1_lwamq"]
+[ext_resource type="Texture2D" uid="uid://ccf6374xrmvjb" path="res://icon.svg" id="2_8on28"]
+[ext_resource type="Script" uid="uid://o6gdofue8oay" path="res://characters/attack_area_enemy.gd" id="3_at2eh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nhupr"]
 radius = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ggbst"]
-radius = 123.49089
+radius = 967.66986
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_toq4n"]
-radius = 408.70773
+radius = 1138.0334
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nhupr"]
 size = Vector2(1631, 1357)
@@ -19,20 +19,18 @@ size = Vector2(1631, 1357)
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ohc2"]
 radius = 73.00685
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("navAgent")]
+[node name="Jeff" type="CharacterBody2D" node_paths=PackedStringArray("navAgent")]
 collision_layer = 4
 collision_mask = 7
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_nhupr")
-speed = 150
+script = ExtResource("1_lwamq")
 navAgent = NodePath("Navigation/NavigationAgent2D")
-knockbackPower = 700
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(4.7683716e-07, 0)
 scale = Vector2(0.28125, 0.28125)
-texture = ExtResource("2_1ohc2")
+texture = ExtResource("2_8on28")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nhupr")
@@ -79,7 +77,7 @@ shape = SubResource("RectangleShape2D_nhupr")
 [node name="AttackArea" type="Area2D" parent="AttackNode"]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("3_1ohc2")
+script = ExtResource("3_at2eh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackNode/AttackArea"]
 shape = SubResource("CircleShape2D_1ohc2")

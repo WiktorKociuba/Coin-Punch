@@ -78,10 +78,11 @@ offset_top = -61.0
 offset_right = -161.0
 offset_bottom = -61.0
 
-[node name="BossUI" parent="." instance=ExtResource("8_6t23p")]
+[node name="BossUI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_6t23p")]
 process_mode = 4
 visible = false
 offset_left = -156.0
 offset_top = -75.0
 offset_right = -156.0
 offset_bottom = -75.0
+player = NodePath("..")

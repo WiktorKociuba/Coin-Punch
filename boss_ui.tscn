@@ -33,10 +33,9 @@ layout_mode = 2
 [node name="BossDD" type="ItemList" parent="BoxContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
-item_count = 3
+item_count = 2
 item_0/text = "Jeff"
-item_1/text = "John"
-item_2/text = "placeholder"
+item_1/text = "placeholder"
 
 [node name="ConfirmPB" type="Button" parent="."]
 layout_mode = 0

@@ -7,5 +7,5 @@ func _input(event: InputEvent) -> void:
 func attack(value: int):
 	var bodies = get_overlapping_bodies()
 	for body in bodies:
-		if body is Enemy:
-			body.onHit(value, get_parent().velocity)
+		if body is Enemy or body is Boss:
+			body.onHit(value, get_parent().velocity, get_parent().global_position)
