@@ -12,7 +12,6 @@ func _process(delta: float) -> void:
 	if Time.get_unix_time_from_system() - lastRestore >= 20.0 and currentHealth < maxHealth:
 		currentHealth += 1
 		lastRestore = Time.get_unix_time_from_system()
-	print(currentHealth)
 	for i in range(maxHealth):
 		var heart = $HealthUI/HealthBar.get_child(i)
 		if i < currentHealth:

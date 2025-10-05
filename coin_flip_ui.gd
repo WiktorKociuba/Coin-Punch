@@ -5,6 +5,14 @@ var RedBet = 0
 var GoldBet = 0
 var SilverBet = 0
 var HeadsOrTails = 0
+var isActive = false
+
+func _ready() -> void:
+	EventController.connect("showCoinFlipUi", showUi)
+
+func _process(delta: float) -> void:
+	if isActive and Input.is_action_pressed("exit"):
+		hideUi()
 
 func _on_heads_bt_pressed() -> void:
 	HeadsOrTails = 0
@@ -34,12 +42,22 @@ func _on_tails_bt_pressed() -> void:
 
 
 func _on_red_input_text_changed(new_text: String) -> void:
-	pass # Replace with function body.
+	RedBet = new_text.to_int()
 
 
 func _on_gold_input_text_changed(new_text: String) -> void:
-	pass # Replace with function body.
+	GoldBet = new_text.to_int()
 
 
 func _on_silver_input_text_changed(new_text: String) -> void:
-	pass # Replace with function body.
+	SilverBet = new_text.to_int()
+
+func showUi():
+	self.visible = true
+	get_tree().paused = true
+	isActive = true
+
+func hideUi():
+	self.visible = false
+	get_tree().paused = false
+	isActive = false

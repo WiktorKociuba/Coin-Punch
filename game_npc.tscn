@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3qj3ifbib6t7"]
+
+[ext_resource type="Script" uid="uid://b1df3trg2d4i4" path="res://game_npc.gd" id="1_k3rfu"]
+[ext_resource type="Texture2D" uid="uid://ccf6374xrmvjb" path="res://icon.svg" id="2_l8o6u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3s5f"]
+size = Vector2(126, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eywgf"]
+radius = 324.00616
+
+[node name="GameNPC" type="CharacterBody2D"]
+scale = Vector2(0.1999999, 0.1999999)
+script = ExtResource("1_k3rfu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_l8o6u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c3s5f")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_eywgf")
+debug_color = Color(0.3909729, 0.5909338, 0.4471857, 0.41960785)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
