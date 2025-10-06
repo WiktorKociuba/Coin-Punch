@@ -13,6 +13,7 @@ config_version=5
 config/name="Coin Punch"
 run/main_scene="uid://baiosiro0vme"
 config/features=PackedStringArray("4.5", "Mobile")
+config/icon="uid://h11r8u7sdr0o"
 
 [autoload]
 
