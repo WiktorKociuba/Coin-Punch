@@ -1,20 +1,53 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3qj3ifbib6t7"]
+[gd_scene load_steps=10 format=3 uid="uid://c3qj3ifbib6t7"]
 
 [ext_resource type="Script" uid="uid://b1df3trg2d4i4" path="res://game_npc.gd" id="1_k3rfu"]
-[ext_resource type="Texture2D" uid="uid://ccf6374xrmvjb" path="res://icon.svg" id="2_l8o6u"]
+[ext_resource type="Texture2D" uid="uid://dbnxsqyt6wh1g" path="res://txt/Snake_idle.png" id="2_k3rfu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3s5f"]
 size = Vector2(126, 128)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eywgf"]
-radius = 324.00616
+radius = 141.42143
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8o6u"]
+atlas = ExtResource("2_k3rfu")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3s5f"]
+atlas = ExtResource("2_k3rfu")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eywgf"]
+atlas = ExtResource("2_k3rfu")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw54t"]
+atlas = ExtResource("2_k3rfu")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dt7l8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8o6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3s5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eywgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nw54t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="GameNPC" type="CharacterBody2D"]
 scale = Vector2(0.1999999, 0.1999999)
 script = ExtResource("1_k3rfu")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_l8o6u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_c3s5f")
@@ -26,5 +59,12 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_eywgf")
 debug_color = Color(0.3909729, 0.5909338, 0.4471857, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-60.000027, -90.00005)
+scale = Vector2(5.937503, 5.480772)
+sprite_frames = SubResource("SpriteFrames_dt7l8")
+autoplay = "default"
+frame_progress = 0.12181491
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

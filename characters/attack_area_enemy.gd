@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var strength: int = 1
+signal enemyAttacked()
 
 var target = null
 @onready var lastHit = Time.get_unix_time_from_system()
@@ -9,6 +10,7 @@ func _process(delta: float) -> void:
 	if target != null and Time.get_unix_time_from_system() - lastHit >= 1.5:
 		target.hit(strength, get_parent().get_parent().velocity)
 		lastHit = Time.get_unix_time_from_system()
+		emit_signal("enemyAttacked")
 
 func _on_body_entered(body: Node2D) -> void:
 	if target == null:

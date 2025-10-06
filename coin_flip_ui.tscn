@@ -15,6 +15,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6n4lk")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -761.0
+offset_top = -818.0
+offset_right = 1405.0
+offset_bottom = 1193.0
+color = Color(1, 1, 1, 0.33333334)
+
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0

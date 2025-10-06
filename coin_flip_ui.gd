@@ -25,11 +25,12 @@ func _on_heads_bt_pressed() -> void:
 		GameController.goldCoinCollected(GoldBet*2)
 		GameController.redCoinCollected(RedBet*2)
 		GameController.silverCoinCollected(SilverBet*2)
+		$BoxContainer/CenterContainer/VBoxContainer/CenterContainer/Label.text = "Heads"
 	else:
 		GameController.goldCoinCollected(-GoldBet)
 		GameController.redCoinCollected(-RedBet)
 		GameController.silverCoinCollected(-SilverBet)
-	$BoxContainer/CenterContainer/VBoxContainer/CenterContainer/Label.text = str(generate)
+		$BoxContainer/CenterContainer/VBoxContainer/CenterContainer/Label.text = "Tails"
 
 func _on_tails_bt_pressed() -> void:
 	HeadsOrTails = 1
@@ -38,11 +39,12 @@ func _on_tails_bt_pressed() -> void:
 		GameController.goldCoinCollected(GoldBet*2)
 		GameController.redCoinCollected(RedBet*2)
 		GameController.silverCoinCollected(SilverBet*2)
+		$BoxContainer/CenterContainer/VBoxContainer/CenterContainer/Label.text = "Tails"
 	else:
 		GameController.goldCoinCollected(-GoldBet)
 		GameController.redCoinCollected(-RedBet)
 		GameController.silverCoinCollected(-SilverBet)
-	$BoxContainer/CenterContainer/VBoxContainer/CenterContainer/Label.text = str(generate)
+		$BoxContainer/CenterContainer/VBoxContainer/CenterContainer/Label.text = "Heads"
 
 
 func _on_red_input_text_changed(new_text: String) -> void:

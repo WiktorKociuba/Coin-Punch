@@ -17,12 +17,27 @@ var targetNode = null
 var homePos = Vector2.ZERO
 var targetPos = Vector2.ZERO
 var lastChangedPos = Time.get_unix_time_from_system()
+enum AnimationState {IDLE, WALK, HURT, DEATH, ATTACK}
+var animState = AnimationState.IDLE
 
 func _ready():
 	homePos = self.global_position
 	navAgent.path_desired_distance = 4
 	navAgent.target_desired_distance = 4
 
+func _process(delta: float) -> void:
+	if velocity.x > 0:
+		$AnimatedSprite2D.flip_h = true
+	else:
+		$AnimatedSprite2D.flip_h = false
+	if animState == AnimationState.HURT or animState == AnimationState.DEATH or animState == AnimationState.ATTACK:
+		return
+	if velocity != Vector2.ZERO:
+		animState = AnimationState.WALK
+		$AnimatedSprite2D.play("walk")
+	else:
+		animState = AnimationState.IDLE
+		$AnimatedSprite2D.play("idle")
 
 func _physics_process(_delta: float):
 	if knockbackTimeLeft > 0.0:
@@ -78,6 +93,8 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 
 func onHit(value: int, playerVelocity: Vector2, playerPosition: Vector2):
 	health -= value
+	$AnimatedSprite2D.play("hurt")
+	animState = AnimationState.HURT
 	var knockbackDirection = (global_position - playerPosition)
 	if knockbackDirection.is_zero_approx():
 		knockbackDirection = -(playerVelocity)
@@ -90,7 +107,8 @@ func onHit(value: int, playerVelocity: Vector2, playerPosition: Vector2):
 	navAgent.set_velocity(Vector2.ZERO)
 	navAgent.set_target_position(global_position)
 	if health <= 0:
-		self.queue_free()
+		$AnimatedSprite2D.play("death")
+		animState = AnimationState.DEATH
 		var rng = RandomNumberGenerator.new()
 		var coinType = rng.randi_range(0,2)
 		var coinQuant = rng.randi_range(1,5)
@@ -103,3 +121,16 @@ func onHit(value: int, playerVelocity: Vector2, playerPosition: Vector2):
 		GameController.goldCoinCollected(goldCoins)
 		GameController.redCoinCollected(redCoins)
 		GameController.silverCoinCollected(silverCoins)
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if animState == AnimationState.HURT:
+		animState = AnimationState.WALK
+		$AnimatedSprite2D.play("walk")
+	if animState == AnimationState.DEATH:
+		self.queue_free()
+
+
+func _on_attack_area_enemy_attacked() -> void:
+	animState = AnimationState.ATTACK
+	$AnimatedSprite2D.play("attack")

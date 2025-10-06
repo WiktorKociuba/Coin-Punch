@@ -12,12 +12,19 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("exit"):
-		visible = false
-		set_process_mode(Node.PROCESS_MODE_DISABLED)
+		hideUi()
 
 func showUi():
 	visible = true
 	set_process_mode(Node.PROCESS_MODE_ALWAYS)
+	self.visible = true
+	get_tree().paused = true
+
+func hideUi():
+	visible = false
+	set_process_mode(Node.PROCESS_MODE_DISABLED)
+	self.visible = false
+	get_tree().paused = false
 
 func _on_boss_dd_item_selected(index: int) -> void:
 	selectedBoss = index
@@ -38,5 +45,4 @@ func _on_confirm_pb_pressed() -> void:
 			boss.global_position = Vector2(2017,-2469)
 			get_tree().current_scene.add_child(boss)
 			player.global_position = Vector2(1686,-2730)
-		visible = false
-		set_process_mode(Node.PROCESS_MODE_DISABLED)
+		hideUi()

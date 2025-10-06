@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cit0pky5b44ly"]
+[gd_scene load_steps=5 format=3 uid="uid://cit0pky5b44ly"]
 
 [ext_resource type="Script" uid="uid://btve56qlssfts" path="res://boss_ui.gd" id="1_f5yoo"]
+[ext_resource type="Texture2D" uid="uid://3jp28nn8fwkw" path="res://txt/GoldCoin.png" id="2_51r3t"]
+[ext_resource type="Texture2D" uid="uid://c1e2sqngcmr28" path="res://txt/SilverCoin.png" id="3_u2nd8"]
+[ext_resource type="Texture2D" uid="uid://b1hpbyt28a8gf" path="res://txt/RedCoin.png" id="4_hu05s"]
 
 [node name="BossUI" type="Control"]
+z_index = 2000
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +14,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f5yoo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -1338.0
+offset_top = -1105.0
+offset_right = 2489.0
+offset_bottom = 2154.0
+color = Color(1, 1, 1, 0.33333334)
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 0
@@ -39,11 +51,160 @@ item_1/text = "placeholder"
 
 [node name="ConfirmPB" type="Button" parent="."]
 layout_mode = 0
-offset_left = 160.0
+offset_left = 255.0
 offset_top = 59.0
-offset_right = 305.0
+offset_right = 400.0
 offset_bottom = 96.0
 text = "Confirm"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(142, 28)
+
+[node name="Gold" type="Control" parent="Node2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 42.0
+offset_right = 82.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Node2D/Gold"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("2_51r3t")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Node2D/Gold"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 11.0
+offset_right = 20.0
+offset_bottom = 34.0
+text = "100"
+horizontal_alignment = 1
+
+[node name="Silver" type="Control" parent="Node2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 72.0
+offset_right = 112.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Node2D/Silver"]
+layout_mode = 0
+offset_right = 15.0
+offset_bottom = 16.0
+texture = ExtResource("3_u2nd8")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Node2D/Silver"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 11.0
+offset_right = 20.0
+offset_bottom = 34.0
+text = "100"
+horizontal_alignment = 1
+
+[node name="Red" type="Control" parent="Node2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_right = 50.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Node2D/Red"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("4_hu05s")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Node2D/Red"]
+layout_mode = 0
+offset_top = 11.0
+offset_right = 17.0
+offset_bottom = 34.0
+text = "100
+"
+horizontal_alignment = 1
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(142, 62)
+
+[node name="Gold" type="Control" parent="Node2D2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 42.0
+offset_right = 82.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Node2D2/Gold"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("2_51r3t")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Node2D2/Gold"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 11.0
+offset_right = 20.0
+offset_bottom = 34.0
+text = "422"
+horizontal_alignment = 1
+
+[node name="Silver" type="Control" parent="Node2D2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 73.0
+offset_right = 113.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Node2D2/Silver"]
+layout_mode = 0
+offset_right = 15.0
+offset_bottom = 16.0
+texture = ExtResource("3_u2nd8")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Node2D2/Silver"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 11.0
+offset_right = 20.0
+offset_bottom = 34.0
+text = "234"
+horizontal_alignment = 1
+
+[node name="Red" type="Control" parent="Node2D2"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_right = 50.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Node2D2/Red"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("4_hu05s")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Node2D2/Red"]
+layout_mode = 0
+offset_top = 11.0
+offset_right = 17.0
+offset_bottom = 34.0
+text = "400"
+horizontal_alignment = 1
 
 [connection signal="item_selected" from="BoxContainer/VBoxContainer/HBoxContainer/BossDD" to="." method="_on_boss_dd_item_selected"]
 [connection signal="pressed" from="ConfirmPB" to="." method="_on_confirm_pb_pressed"]

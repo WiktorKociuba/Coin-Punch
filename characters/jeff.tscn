@@ -1,8 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlf2uxag447pa"]
+[gd_scene load_steps=37 format=3 uid="uid://dlf2uxag447pa"]
 
 [ext_resource type="Script" uid="uid://ot1o1r70k86" path="res://boss.gd" id="1_6kjau"]
-[ext_resource type="Texture2D" uid="uid://ccf6374xrmvjb" path="res://icon.svg" id="2_1h8am"]
 [ext_resource type="Script" uid="uid://o6gdofue8oay" path="res://characters/attack_area_enemy.gd" id="3_j55x1"]
+[ext_resource type="Texture2D" uid="uid://c5vo5ixe704kg" path="res://txt/6 Deceased/Deceased_attack.png" id="3_l2gtl"]
+[ext_resource type="Texture2D" uid="uid://c20ii3o1w8j4a" path="res://txt/6 Deceased/Deceased_death.png" id="4_6q5h4"]
+[ext_resource type="Texture2D" uid="uid://1sc6sg81cc8x" path="res://txt/6 Deceased/Deceased_hurt.png" id="5_5yral"]
+[ext_resource type="Texture2D" uid="uid://cdtvts5yk1iyi" path="res://txt/6 Deceased/Deceased_idle.png" id="5_la0c2"]
+[ext_resource type="Texture2D" uid="uid://b7rv8svrusrfi" path="res://txt/6 Deceased/Deceased_walk.png" id="7_5jgcy"]
+[ext_resource type="Script" uid="uid://dmgpucqpus1ju" path="res://characters/animation_handler_jeff.gd" id="8_k0et8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nhupr"]
 radius = 18.0
@@ -19,6 +24,188 @@ size = Vector2(1631, 1357)
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ohc2"]
 radius = 73.00685
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yral"]
+atlas = ExtResource("3_l2gtl")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jgcy"]
+atlas = ExtResource("3_l2gtl")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0et8"]
+atlas = ExtResource("3_l2gtl")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sn5e"]
+atlas = ExtResource("3_l2gtl")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_805wb"]
+atlas = ExtResource("4_6q5h4")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u7mu"]
+atlas = ExtResource("4_6q5h4")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imiu7"]
+atlas = ExtResource("4_6q5h4")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6kld"]
+atlas = ExtResource("4_6q5h4")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtg6b"]
+atlas = ExtResource("4_6q5h4")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6lng"]
+atlas = ExtResource("4_6q5h4")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ii2pf"]
+atlas = ExtResource("5_5yral")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d21gd"]
+atlas = ExtResource("5_5yral")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1kfp"]
+atlas = ExtResource("5_la0c2")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kh7v"]
+atlas = ExtResource("5_la0c2")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sry2"]
+atlas = ExtResource("5_la0c2")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3mpf"]
+atlas = ExtResource("5_la0c2")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58h6v"]
+atlas = ExtResource("7_5jgcy")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgdb0"]
+atlas = ExtResource("7_5jgcy")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq8e1"]
+atlas = ExtResource("7_5jgcy")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co483"]
+atlas = ExtResource("7_5jgcy")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b02s5"]
+atlas = ExtResource("7_5jgcy")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcior"]
+atlas = ExtResource("7_5jgcy")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ii2pf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yral")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jgcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0et8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sn5e")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_805wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6u7mu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imiu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6kld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtg6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6lng")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ii2pf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d21gd")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1kfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kh7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sry2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3mpf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58h6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgdb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq8e1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co483")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b02s5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcior")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
 [node name="Jeff" type="CharacterBody2D" node_paths=PackedStringArray("navAgent")]
 collision_layer = 4
 collision_mask = 7
@@ -27,11 +214,6 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_6kjau")
 navAgent = NodePath("Navigation/NavigationAgent2D")
 knockbackPower = 1000
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4.7683716e-07, 0)
-scale = Vector2(0.28125, 0.28125)
-texture = ExtResource("2_1h8am")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nhupr")
@@ -83,9 +265,22 @@ script = ExtResource("3_j55x1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackNode/AttackArea"]
 shape = SubResource("CircleShape2D_1ohc2")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ii2pf")
+animation = &"hurt"
+autoplay = "idle"
+script = ExtResource("8_k0et8")
+
+[connection signal="playAttack" from="." to="AnimatedSprite2D" method="_on_jeff_play_attack"]
+[connection signal="playDeath" from="." to="AnimatedSprite2D" method="_on_jeff_play_death"]
+[connection signal="playHurt" from="." to="AnimatedSprite2D" method="_on_jeff_play_hurt"]
+[connection signal="playIdle" from="." to="AnimatedSprite2D" method="_on_jeff_play_idle"]
+[connection signal="playWalk" from="." to="AnimatedSprite2D" method="_on_jeff_play_walk"]
 [connection signal="velocity_computed" from="Navigation/NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="Navigation/RecalculateTimer" to="." method="_on_recalculate_timer_timeout"]
 [connection signal="area_entered" from="Aggro/AggroRange" to="." method="_on_aggro_range_area_entered"]
 [connection signal="area_exited" from="Aggro/DeAggroRange" to="." method="_on_de_aggro_range_area_exited"]
 [connection signal="body_entered" from="AttackNode/AttackArea" to="AttackNode/AttackArea" method="_on_body_entered"]
 [connection signal="body_exited" from="AttackNode/AttackArea" to="AttackNode/AttackArea" method="_on_body_exited"]
+[connection signal="enemyAttacked" from="AttackNode/AttackArea" to="." method="_on_attack_area_enemy_attacked"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
