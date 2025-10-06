@@ -1,6 +1,6 @@
 [gd_scene load_steps=37 format=3 uid="uid://dlf2uxag447pa"]
 
-[ext_resource type="Script" uid="uid://ot1o1r70k86" path="res://boss.gd" id="1_6kjau"]
+[ext_resource type="Script" uid="uid://ot1o1r70k86" path="res://scripts/boss.gd" id="1_6kjau"]
 [ext_resource type="Script" uid="uid://o6gdofue8oay" path="res://characters/attack_area_enemy.gd" id="3_j55x1"]
 [ext_resource type="Texture2D" uid="uid://c5vo5ixe704kg" path="res://txt/6 Deceased/Deceased_attack.png" id="3_l2gtl"]
 [ext_resource type="Texture2D" uid="uid://c20ii3o1w8j4a" path="res://txt/6 Deceased/Deceased_death.png" id="4_6q5h4"]

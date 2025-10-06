@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://uqqa5x78tnu3"]
 
-[ext_resource type="Script" uid="uid://begsi5l5py0tr" path="res://boss_npc.gd" id="1_wdsob"]
+[ext_resource type="Script" uid="uid://begsi5l5py0tr" path="res://scripts/boss_npc.gd" id="1_wdsob"]
 [ext_resource type="Texture2D" uid="uid://cirskumxicrja" path="res://txt/Vulture_idle.png" id="2_wdsob"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwc0v"]
@@ -65,6 +65,6 @@ position = Vector2(-8, -10)
 scale = Vector2(1.125, 1.125)
 sprite_frames = SubResource("SpriteFrames_b4d0l")
 autoplay = "default"
-frame_progress = 0.81676704
+frame_progress = 0.24461019
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

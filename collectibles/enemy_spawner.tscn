@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://eceiypi3ydo0"]
 
-[ext_resource type="Script" uid="uid://eu8rj1hmfc87" path="res://enemy_spawner.gd" id="1_ewhtn"]
+[ext_resource type="Script" uid="uid://eu8rj1hmfc87" path="res://scripts/enemy_spawner.gd" id="1_ewhtn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_00s5r"]
 radius = 115.03912

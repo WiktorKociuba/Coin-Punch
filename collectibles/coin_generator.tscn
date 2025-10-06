@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bsleqywsatvxt"]
 
-[ext_resource type="Script" uid="uid://dvbav77jmr1nd" path="res://coin_generator.gd" id="1_6dtxw"]
+[ext_resource type="Script" uid="uid://dvbav77jmr1nd" path="res://scripts/coin_generator.gd" id="1_6dtxw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4nup7"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cit0pky5b44ly"]
 
-[ext_resource type="Script" uid="uid://btve56qlssfts" path="res://boss_ui.gd" id="1_f5yoo"]
+[ext_resource type="Script" uid="uid://btve56qlssfts" path="res://scripts/boss_ui.gd" id="1_f5yoo"]
 [ext_resource type="Texture2D" uid="uid://3jp28nn8fwkw" path="res://txt/GoldCoin.png" id="2_51r3t"]
 [ext_resource type="Texture2D" uid="uid://c1e2sqngcmr28" path="res://txt/SilverCoin.png" id="3_u2nd8"]
 [ext_resource type="Texture2D" uid="uid://b1hpbyt28a8gf" path="res://txt/RedCoin.png" id="4_hu05s"]

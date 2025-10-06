@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bwtg0cmoqqcgj"]
 
-[ext_resource type="Script" uid="uid://ot1o1r70k86" path="res://boss.gd" id="1_lwamq"]
+[ext_resource type="Script" uid="uid://ot1o1r70k86" path="res://scripts/boss.gd" id="1_lwamq"]
 [ext_resource type="Texture2D" uid="uid://ccf6374xrmvjb" path="res://icon.svg" id="2_8on28"]
 [ext_resource type="Script" uid="uid://o6gdofue8oay" path="res://characters/attack_area_enemy.gd" id="3_at2eh"]
 

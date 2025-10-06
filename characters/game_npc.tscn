@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://c3qj3ifbib6t7"]
 
-[ext_resource type="Script" uid="uid://b1df3trg2d4i4" path="res://game_npc.gd" id="1_k3rfu"]
+[ext_resource type="Script" uid="uid://b1df3trg2d4i4" path="res://scripts/game_npc.gd" id="1_k3rfu"]
 [ext_resource type="Texture2D" uid="uid://dbnxsqyt6wh1g" path="res://txt/Snake_idle.png" id="2_k3rfu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3s5f"]
@@ -65,6 +65,6 @@ position = Vector2(-60.000027, -90.00005)
 scale = Vector2(5.937503, 5.480772)
 sprite_frames = SubResource("SpriteFrames_dt7l8")
 autoplay = "default"
-frame_progress = 0.12181491
+frame_progress = 0.4174667
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
